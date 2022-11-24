@@ -1,6 +1,9 @@
-import { container } from 'tsyringe';
+import { container, delay } from 'tsyringe';
 
-container.registerSingleton<ICustomersRepository>(
-  'CustomersRepository',
-  CustomersRepository,
+import { IBookRepository } from '@modules/books/domain/repositories/book-repository';
+import BookRepository from '@modules/books/repository/prisma/book-repository';
+
+container.registerSingleton<IBookRepository>(
+  'RepositoryBook',
+  delay(() => BookRepository),
 );
