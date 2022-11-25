@@ -1,6 +1,6 @@
-import { Request, Response } from 'express';
 import { container } from 'tsyringe';
-import PatchBookUseCase from './patch-book-usecase';
+import { Request, Response } from 'express';
+import PatchBookUseCase from './patchBookUseCase';
 
 export default class PatchBookController {
   async handle(request: Request, response: Response): Promise<Response> {

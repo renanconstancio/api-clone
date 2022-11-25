@@ -1,17 +1,17 @@
 import { inject, injectable } from 'tsyringe';
 import { IBookRequest } from '@modules/books/domain/dtos/IBookRequest';
 import { IBookResponse } from '@modules/books/domain/dtos/IBookResponse';
-import { IBookRepository } from '@modules/books/domain/repositories/book-repository';
+import { IBookRepository } from '@modules/books/domain/repositories/bookRepository';
 // import AppError from '@shared/errors/app-error';
 
 @injectable()
-export default class GetAllBookUseCase {
+export default class PatchBookUseCase {
   constructor(
     @inject('BookRepository')
     private repository: IBookRepository,
   ) {}
 
-  async execute(): Promise<IBookResponse[]> {
+  async execute(data: IBookRequest): Promise<IBookResponse> {
     // const isExistsId = await this.repository.findByIdCategory(`${data.id}`);
 
     // if (!isExistsId && data.id) {
@@ -32,6 +32,8 @@ export default class GetAllBookUseCase {
     //   );
     // }
 
-    return await this.repository.getAll();
+    return await this.repository.save({
+      ...data,
+    });
   }
 }

@@ -1,9 +1,9 @@
 import { container, delay } from 'tsyringe';
 
-import { IBookRepository } from '@modules/books/domain/repositories/book-repository';
-import BookRepository from '@modules/books/repository/prisma/book-repository';
+import { IBookRepository } from '@modules/books/domain/repositories/bookRepository';
+import BookRepository from '@modules/books/repository/prisma/bookRepository';
 
 container.registerSingleton<IBookRepository>(
-  'RepositoryBook',
+  'BookRepository',
   delay(() => BookRepository),
 );

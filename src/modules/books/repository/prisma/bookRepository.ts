@@ -1,6 +1,6 @@
 import { IBookRequest } from '@modules/books/domain/dtos/IBookRequest';
 import { IBookResponse } from '@modules/books/domain/dtos/IBookResponse';
-import { IBookRepository } from '@modules/books/domain/repositories/book-repository';
+import { IBookRepository } from '@modules/books/domain/repositories/bookRepository';
 import { prisma } from '@shared/prisma';
 
 export default class BookRepository implements IBookRepository {
